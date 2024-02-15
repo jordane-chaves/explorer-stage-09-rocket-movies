@@ -5,6 +5,7 @@ import backgroundImg from '../../assets/background.png'
 export const Container = styled.div`
   display: flex;
   align-items: stretch;
+  justify-content: center;
 
   height: 100vh;
   width: 100%;
@@ -14,19 +15,27 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    padding: 0 8.5rem;
+    text-align: center;
+
+    padding: 0 3rem;
 
     h1 {
       color: ${({ theme }) => theme.colors.pink};
-      font-size: 3rem;
+      font-size: clamp(2.25rem, 8vw, 3rem);
       font-weight: 700;
     }
 
     p {
       color: ${({ theme }) => theme.colors.gray_400};
-      font-size: 0.875rem;
-
+      font-size: clamp(0.75rem, 2.5vw, 0.875rem);
       margin-top: 0.5rem;
+    }
+  }
+
+  ${({ theme }) => theme.screens.sm} {
+    > main {
+      text-align: left;
+      padding: 0 8.5rem;
     }
   }
 `
@@ -44,7 +53,7 @@ export const Form = styled.form`
     font-size: 1.5rem;
     font-weight: 500;
 
-    align-self: flex-start;
+    align-self: center;
 
     margin-bottom: 3rem;
   }
@@ -61,24 +70,36 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.colors.pink};
     margin-top: 3rem;
   }
+
+  ${({ theme }) => theme.screens.sm} {
+    > h2 {
+      align-self: flex-start;
+    }
+  }
 `
 
 export const Background = styled.div`
-  background: url(${backgroundImg}) no-repeat center/cover;
-  flex: 1;
+  display: none;
 
-  position: relative;
+  ${({ theme }) => theme.screens.sm} {
+    background: url(${backgroundImg}) no-repeat center/cover;
 
-  &::before {
-    content: '';
+    display: block;
+    flex: 1;
 
-    background: ${({ theme }) => theme.colors.gray_950};
-    opacity: 0.8;
+    position: relative;
 
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    &::before {
+      content: '';
+
+      background: ${({ theme }) => theme.colors.gray_950};
+      opacity: 0.8;
+
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
   }
 `

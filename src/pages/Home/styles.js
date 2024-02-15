@@ -14,16 +14,27 @@ export const Content = styled.main`
 
   height: calc(100% - 113px);
 
-  padding: 3rem 8rem;
+  padding: 1.5rem 3rem;
 
   > div {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
     h1 {
-      font-size: 2rem;
+      font-size: clamp(1.5rem, 2vw, 2rem);
       font-weight: 400;
+      margin-bottom: 2rem;
+    }
+  }
+
+  ${({ theme }) => theme.screens.md} {
+    padding: 3rem 8rem;
+
+    > div:nth-child(1) {
+      flex-direction: row;
+      margin-bottom: 0;
     }
   }
 `

@@ -4,6 +4,9 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%;
 
+  display: flex;
+  flex-direction: column;
+
   > header {
     background-color: rgb(
       from ${({ theme }) => theme.colors.pink} r g b / 0.05
@@ -12,24 +15,28 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    padding: 3.5rem 8rem;
+    padding: 3.5rem 3rem;
+  }
+
+  ${({ theme }) => theme.screens.sm} {
+    > header {
+      padding: 3.5rem 8rem;
+    }
   }
 `
 
 export const Avatar = styled.div`
-  height: 12rem;
-  width: 12rem;
+  height: 8rem;
+  width: 8rem;
 
-  margin: -6rem auto 3.5rem;
+  margin: -4rem auto 2rem;
 
   position: relative;
 
   > img {
     border-radius: 50%;
-    height: 12rem;
-    width: 12rem;
-    min-height: 12rem;
-    min-width: 12rem;
+    height: 8rem;
+    width: 8rem;
     object-fit: cover;
   }
 
@@ -45,8 +52,8 @@ export const Avatar = styled.div`
     width: 3rem;
 
     position: absolute;
-    bottom: 0.25rem;
-    right: 0.5rem;
+    bottom: -0.25rem;
+    right: -0.25rem;
 
     svg {
       color: ${({ theme }) => theme.colors.gray_900};
@@ -56,6 +63,22 @@ export const Avatar = styled.div`
       display: none;
     }
   }
+
+  ${({ theme }) => theme.screens.sm} {
+    margin: -6rem auto 3.5rem;
+    height: 12rem;
+    width: 12rem;
+
+    > img {
+      height: 12rem;
+      width: 12rem;
+    }
+
+    > label {
+      bottom: 0.25rem;
+      right: 0.5rem;
+    }
+  }
 `
 
 export const Form = styled.form`
@@ -63,8 +86,10 @@ export const Form = styled.form`
   flex-direction: column;
   gap: 1.5rem;
 
+  align-self: center;
+
   max-width: 20rem;
-  margin: 0 auto;
+  margin: 0 3rem;
 
   > fieldset {
     border: none;

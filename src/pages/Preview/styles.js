@@ -10,7 +10,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   height: calc(100% - 113px);
-  padding: 3rem 8rem;
+  padding: 1.5rem 3rem;
 
   > div {
     display: flex;
@@ -19,6 +19,10 @@ export const Content = styled.div`
 
     padding: 1rem;
     overflow-y: auto;
+  }
+
+  ${({ theme }) => theme.screens.md} {
+    padding: 3rem 8rem;
   }
 `
 
@@ -39,11 +43,18 @@ export const Heading = styled.div`
 
   > div.title {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 1.25rem;
 
     h1 {
       font-weight: 500;
+    }
+  }
+
+  ${({ theme }) => theme.screens.lg} {
+    > div.title {
+      align-items: center;
+      flex-direction: row;
     }
   }
 `

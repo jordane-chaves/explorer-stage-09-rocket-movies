@@ -1,8 +1,8 @@
 import { Container, InputContainer } from './styles'
 
-export function InputRoot({ children, label }) {
+export function InputRoot({ children, label, ...rest }) {
   return (
-    <Container>
+    <Container {...rest}>
       {label && <label>{label}</label>}
       <InputContainer>{children}</InputContainer>
     </Container>

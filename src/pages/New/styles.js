@@ -10,7 +10,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   height: calc(100% - 113px);
-  padding: 3rem 8rem;
+  padding: 1.5rem 3rem;
 
   > div {
     display: flex;
@@ -19,6 +19,10 @@ export const Content = styled.div`
 
     padding: 1rem;
     overflow-y: auto;
+  }
+
+  ${({ theme }) => theme.screens.md} {
+    padding: 3rem 8rem;
   }
 `
 
@@ -42,7 +46,8 @@ export const Form = styled.form`
 
   > div {
     display: flex;
-    gap: 2.5rem;
+    flex-direction: column;
+    gap: 2rem;
 
     button {
       width: 100%;
@@ -50,8 +55,14 @@ export const Form = styled.form`
 
     > div {
       display: flex;
-      gap: 2.5rem;
+      flex-direction: column;
+      gap: 3rem;
       flex: 1;
+
+      div {
+        min-width: 10rem;
+        width: 100%;
+      }
     }
   }
 
@@ -72,6 +83,23 @@ export const Form = styled.form`
 
       margin-top: 1.5rem;
       padding: 1rem;
+    }
+  }
+
+  ${({ theme }) => theme.screens.md} {
+    > div {
+      gap: 2.5rem;
+
+      > div {
+        flex-direction: row;
+        gap: 2.5rem;
+      }
+    }
+  }
+
+  ${({ theme }) => theme.screens.lg} {
+    > div {
+      flex-direction: row;
     }
   }
 `
